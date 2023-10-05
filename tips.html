@@ -21,17 +21,17 @@
 <p id="output">click on "show tip" to view tip amount</p>
 
 <form>
-    <input type="radio" id="calcSum" name="operation" value="sum" onclick="chooseOp()">
-    <label for="calcSum">sum</label><br>
+    <input type="radio" id="findSum" name="airthmetic-operation" value="sum" onclick="chooseOp()">
+    <label for="findSum">sum</label><br>
   
-    <input type="radio" id="calcDiff" name="operation" value="difference" onclick="chooseOp()">
-    <label for="calcDiff">diff</label><br>
+    <input type="radio" id="findDiff" name="airthmetic-operation" value="difference" onclick="chooseOp()">
+    <label for="findDiff">diff</label><br>
   
-    <input type="radio" id="calcMult" name="operation" value="product" onclick="chooseOp()">
-    <label for="calcMult">mult</label><br>
+    <input type="radio" id="findMult" name="airthmetic-operation" value="product" onclick="chooseOp()">
+    <label for="findMult">mult</label><br>
 </form>
 
-  <p id="operation_Result"></p>
+  <p id="airthmetic-operation_Output"></p>
 
   
 <script> 
@@ -56,28 +56,28 @@ function tips() {
     
 function chooseOp() {
         
-        const operation = document.querySelector('input[name="operation"]:checked').value;
+        const operation = document.querySelector('input[name="airthmetic-operation"]:checked').value;
         
-        const base1 = parseFloat(document.getElementById('form1_baseAmount').value);
-        const tip1 = parseFloat(document.getElementById('form1_tipPercent').value);
+        const inputBase = parseFloat(document.getElementById('baseAmount1').value);
+        const inputTip = parseFloat(document.getElementById('tipPercent1').value);
         
-        let calcResult;
+        let calcOutput;
 
         switch (operation) {
 		        case "sum":
-                    calcResult = `Sum of ${base1} and ${tip1} is ${base1 + tip1}`;
+                    calcOutput = `Sum of ${inputBase} and ${inputTip} is ${inputBase + inputTip}`;
                     break;
                 case "difference":
-                    calcResult = `Difference between ${base1} and ${tip1} is ${base1 - tip1}`;
+                    calcOutput = `Difference between ${inputBase} and ${inputTip} is ${inputBase - inputTip}`;
                     break;
                 case "product":
-                    calcResult = `Product of ${base1} and ${tip1} is ${base1 * tip1}`;
+                    calcOutput = `Product of ${inputBase} and ${inputTip} is ${inputBase * inputTip}`;
                     break;
                 default:
-                    calcResult = "Please select Either Sum or Difference or Multiplication";
+                    calcOutput = "Please select valid option";
             }
 
-            document.getElementById('operation_Result').textContent = `${calcResult}`;
+            document.getElementById('airthmetic-operation_Output').textContent = `${calcOutput}`;
     }
 </script>
 
